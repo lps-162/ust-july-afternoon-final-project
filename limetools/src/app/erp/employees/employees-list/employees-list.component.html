@@ -1,3 +1,24 @@
-<p>
-  employees-list works!
-</p>
+<h3>
+  List of Employees
+</h3>
+
+<table class="table table-bordered table-striped">
+  <tr>
+    <th>Emp Id</th>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>City</th>
+    <th>Actions</th>
+  </tr>
+  <tr *ngFor="let employee of gridData">
+    <td>{{ employee.id }}</td>
+    <td>{{ employee.first_name }} </td>
+    <td>{{ employee.last_name }} </td>
+    <td>{{ employee.city }} </td>
+    <td>
+      <a [routerLink]="['/employees', employee.id]" class="btn btn-sm btn-info">
+        View
+      </a>
+    </td>
+  </tr>
+</table>
