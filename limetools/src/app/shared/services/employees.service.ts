@@ -9,7 +9,6 @@ export class EmployeesService {
   constructor(private http: Http) { }
 
   getEmployees() {
-    debugger;
     return this.http.get('http://localhost:3000/api/employees')
       .map(response => response.json());
     
