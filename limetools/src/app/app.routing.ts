@@ -18,6 +18,10 @@ const appRoutes: Route[] = [
     //     component: AboutComponent
     // },
     ...aboutRoutes,
+    {
+        path: 'employees',
+        loadChildren: 'app/erp/employees/employees.module#EmployeesModule'
+    },
     ...miscRoutes
 
 ];

@@ -8,4 +8,3 @@ export const aboutRoutes: Route[] = [
         component: AboutComponent
     },
 ];
-

@@ -20,8 +20,7 @@ import { EmployeesModule } from "app/erp/employees/employees.module";
   ],
   imports: [
     BrowserModule,
-    appRouting,
-    EmployeesModule
+    appRouting
   ],
   providers: [],
   bootstrap: [AppComponent]

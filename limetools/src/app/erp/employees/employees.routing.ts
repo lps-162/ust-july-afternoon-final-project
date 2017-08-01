@@ -7,7 +7,7 @@ import { EmployeesSectionComponent } from "app/erp/employees/employees-section/e
 
 const employeesRoutes: Route[] = [
     {
-        path: 'employees',
+        path: '',
         component: EmployeesSectionComponent,
         children: [
             {
@@ -27,4 +27,4 @@ const employeesRoutes: Route[] = [
 
 ];
 
-export const employeesRouting = RouterModule.forRoot(employeesRoutes);
+export const employeesRouting = RouterModule.forChild(employeesRoutes);
