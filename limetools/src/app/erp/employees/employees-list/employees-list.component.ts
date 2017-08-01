@@ -1,19 +1,26 @@
 import { Component, OnInit } from '@angular/core';
-import { listOfEmployees } from "app/shared/mock-data/mock-employees";
+import { EmployeesService } from "app/shared/services/employees.service";
+
+
 //import { listOfEmployees } from '../../../shared/mock-data/mock-employees';
 
 @Component({
   selector: 'app-employees-list',
   templateUrl: './employees-list.component.html',
-  styleUrls: ['./employees-list.component.css']
+  styleUrls: ['./employees-list.component.css'],
+  providers: [EmployeesService]
 })
 export class EmployeesListComponent implements OnInit {
   gridData;
 
-  constructor() { }
+  constructor(private empService: EmployeesService) { }
 
-  ngOnInit() {
-    this.gridData = listOfEmployees;
+  ngOnInit(){
+    this.empService.getEmployees()
+      .subscribe(employees => {
+        console.log(employees);
+        this.gridData = employees
+      });
   }
 
 }
