@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from "@angular/router";
 import { HttpModule } from '@angular/http';
+import { FormsModule } from '@angular/forms';
 
 import { EmployeesListComponent } from "app/erp/employees/employees-list/employees-list.component";
 import { EmployeeDetailsComponent } from "app/erp/employees/employee-details/employee-details.component";
@@ -13,6 +14,7 @@ import { EmployeesService } from "app/shared/services/employees.service";
 @NgModule({
   imports: [
     CommonModule,
+    FormsModule,
     HttpModule,
     employeesRouting
   ],
@@ -23,7 +25,7 @@ import { EmployeesService } from "app/shared/services/employees.service";
     EmployeesSectionComponent
   ],
   providers: [
-    
+    EmployeesService
   ]
 })
 export class EmployeesModule { }

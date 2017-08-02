@@ -7,8 +7,7 @@ import { EmployeesService } from "app/shared/services/employees.service";
 @Component({
   selector: 'app-employees-list',
   templateUrl: './employees-list.component.html',
-  styleUrls: ['./employees-list.component.css'],
-  providers: [EmployeesService]
+  styleUrls: ['./employees-list.component.css']
 })
 export class EmployeesListComponent implements OnInit {
   gridData;
@@ -19,7 +18,7 @@ export class EmployeesListComponent implements OnInit {
     this.empService.getEmployees()
       .subscribe(employees => {
         console.log(employees);
-        this.gridData = employees
+        this.gridData = employees;
       });
   }
 

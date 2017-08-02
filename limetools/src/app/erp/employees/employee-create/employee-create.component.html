@@ -1,3 +1,39 @@
-<h3>
-  Create New Employee
-</h3>
+<div class="col-sm-6">
+  <div *ngIf="successMessage" class="alert alert-success"> 
+    {{ successMessage }}
+  </div>
+  <h3>
+    Create New Employee
+  </h3>
+
+  <form (ngSubmit)="createEmployee()">
+
+    <div class="form-group">
+      Emp No
+      <input type="text" name="emp_no" 
+        class="form-control" [(ngModel)]="employee.emp_no" />
+    </div>
+
+    <div class="form-group">
+      First Name
+      <input type="text" name="first_name" 
+        class="form-control" [(ngModel)]="employee.first_name" />
+    </div>
+
+    <div class="form-group">
+      Last Name
+      <input type="text" name="last_name" 
+        class="form-control" [(ngModel)]="employee.last_name" />
+    </div>
+
+    <div class="form-group">
+      City
+      <input type="text" name="city" 
+        class="form-control" [(ngModel)]="employee.city"/>
+    </div>
+
+    <input type="submit" class="btn btn-info" />
+
+  </form>
+
+</div>
