@@ -19,7 +19,8 @@ export class EmployeesListComponent implements OnInit {
       .subscribe(employees => {
         console.log(employees);
         this.gridData = employees;
-      });
+      },
+      err => console.log(err));
   }
 
 }

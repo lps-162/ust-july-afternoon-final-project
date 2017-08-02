@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Employee } from "app/shared/models/employee";
 import { EmployeesService } from "app/shared/services/employees.service";
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-employee-create',
@@ -11,7 +12,8 @@ export class EmployeeCreateComponent implements OnInit {
   employee;
   successMessage: string;
 
-  constructor(private empService: EmployeesService) { }
+  constructor(private router: Router, 
+      private empService: EmployeesService) { }
 
   ngOnInit() {
     this.employee = new Employee();
@@ -20,8 +22,10 @@ export class EmployeeCreateComponent implements OnInit {
   createEmployee() {
     this.empService.createEmployee(this.employee)
         .subscribe(employee => {
-          this.successMessage = 'Employee Created Successfully'
-          setTimeout(() => this.successMessage = '', 3000);
+          //this.successMessage = 'Employee Created Successfully'
+          //setTimeout(() => this.successMessage = '', 3000);
+          const link = ['/employees', employee.id];
+          this.router.navigate(link);
         });
   }
 }
