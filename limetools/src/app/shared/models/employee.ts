@@ -4,6 +4,7 @@ export class Employee {
     first_name: string;
     last_name: string;
     city: string;
+    full_name?: string;
 
     constructor() {
         this.emp_no = '';

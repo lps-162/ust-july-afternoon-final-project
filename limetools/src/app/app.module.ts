@@ -10,13 +10,14 @@ import { NotFoundComponent } from './erp/not-found/not-found.component';
 import { appRouting } from "./app.routing";
 import { EmployeesModule } from "app/erp/employees/employees.module";
 
+
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     AboutComponent,
     NavbarComponent,
-    NotFoundComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,

@@ -1,7 +1,4 @@
-
-import { Employee } from "app/shared/models/employee";
-
-export let listOfEmployees: Employee[] = [
+let listOfEmployees = [
   {
     id: 145,
     emp_no: 'U145',
@@ -24,3 +21,10 @@ export let listOfEmployees: Employee[] = [
     city: 'Newyork'
   }
 ];
+
+let convertedList = listOfEmployees.map(e => {
+    e.full_name = e.first_name +  ' ' + e.last_name;
+    return e;
+});
+
+console.log(convertedList)

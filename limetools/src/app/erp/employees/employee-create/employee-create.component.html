@@ -6,34 +6,38 @@
     Create New Employee
   </h3>
 
-  <form (ngSubmit)="createEmployee()">
+  <form (ngSubmit)="createEmployee()" [formGroup]="createForm">
 
-    <div class="form-group">
+     <div class="form-group" [ngClass]="{'has-error': empNoError, 'has-success' : !empNoError }">
       Emp No
       <input type="text" name="emp_no" 
-        class="form-control" [(ngModel)]="employee.emp_no" />
+        class="form-control" formControlName="emp_no" />
+
+        <span class="help-block" *ngIf="empNoError">
+          {{ empNoError }}
+        </span>
     </div>
 
     <div class="form-group">
       First Name
       <input type="text" name="first_name" 
-        class="form-control" [(ngModel)]="employee.first_name" />
+        class="form-control"  formControlName="first_name" />
     </div>
 
     <div class="form-group">
       Last Name
       <input type="text" name="last_name" 
-        class="form-control" [(ngModel)]="employee.last_name" />
+        class="form-control" formControlName="last_name" />
     </div>
 
     <div class="form-group">
       City
       <input type="text" name="city" 
-        class="form-control" [(ngModel)]="employee.city"/>
+        class="form-control" formControlName="city" />
     </div>
 
     <input type="submit" class="btn btn-info" />
 
   </form>
-
+  
 </div>

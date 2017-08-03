@@ -9,6 +9,7 @@ import { EmployeesService } from "app/shared/services/employees.service";
 })
 export class EmployeeDetailsComponent implements OnInit {
   employee;
+  gridData;
 
   constructor(private route: ActivatedRoute,
              private empService: EmployeesService) {
@@ -20,6 +21,7 @@ export class EmployeeDetailsComponent implements OnInit {
 
     this.empService.getEmployeeDetails(employeeId)
         .subscribe(employee => this.employee = employee);
+
 
   }
 
