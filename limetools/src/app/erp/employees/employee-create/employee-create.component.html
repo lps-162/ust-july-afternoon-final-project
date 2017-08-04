@@ -1,42 +1,61 @@
 <div class="col-sm-6">
-  <div *ngIf="successMessage" class="alert alert-success"> 
-    {{ successMessage }}
+  <div *ngIf="errorMessage" class="alert alert-danger"> 
+    {{ errorMessage }}
   </div>
+  
   <h3>
     Create New Employee
   </h3>
 
   <form (ngSubmit)="createEmployee()" [formGroup]="createForm">
 
-     <div class="form-group" [ngClass]="{'has-error': empNoError, 'has-success' : !empNoError }">
+     <div class="form-group" 
+        [ngClass]="{'has-error': formErrors.emp_no, 
+                    'has-success' : !formErrors.emp_no }">
       Emp No
       <input type="text" name="emp_no" 
         class="form-control" formControlName="emp_no" />
 
-        <span class="help-block" *ngIf="empNoError">
-          {{ empNoError }}
+        <span class="help-block" *ngIf="formErrors.emp_no">
+          {{ formErrors.emp_no }}
         </span>
     </div>
 
-    <div class="form-group">
+    <div class="form-group"
+          [ngClass]="{'has-error': formErrors.first_name, 
+                    'has-success' : !formErrors.first_name }">
       First Name
       <input type="text" name="first_name" 
         class="form-control"  formControlName="first_name" />
+        <span class="help-block" *ngIf="formErrors.first_name">
+          {{ formErrors.first_name }}
+       </span>
     </div>
 
-    <div class="form-group">
+    <div class="form-group" 
+        [ngClass]="{'has-error': formErrors.last_name, 
+                    'has-success' : !formErrors.last_name }">
       Last Name
       <input type="text" name="last_name" 
         class="form-control" formControlName="last_name" />
+        <span class="help-block" *ngIf="formErrors.last_name">
+          {{ formErrors.last_name }}
+        </span>
     </div>
 
-    <div class="form-group">
+    <div class="form-group" 
+        [ngClass]="{'has-error': formErrors.city, 
+                    'has-success' : !formErrors.city }">
       City
       <input type="text" name="city" 
         class="form-control" formControlName="city" />
+      <span class="help-block" *ngIf="formErrors.city">
+        {{ formErrors.city }}
+     </span>
     </div>
 
-    <input type="submit" class="btn btn-info" />
+    <input type="submit" class="btn btn-info" 
+        [disabled]="!isFormValid"/>
 
   </form>
   
