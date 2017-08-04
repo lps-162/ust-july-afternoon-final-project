@@ -3,6 +3,7 @@ import { Employee } from "app/shared/models/employee";
 import { EmployeesService } from "app/shared/services/employees.service";
 import { Router } from "@angular/router";
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
+import { AlertService } from "app/shared/services/alert.service";
 
 @Component({
   selector: 'app-employee-create',
@@ -47,7 +48,8 @@ export class EmployeeCreateComponent implements OnInit {
 
   constructor(private router: Router, 
               private empService: EmployeesService,
-              fb: FormBuilder) { 
+              fb: FormBuilder,
+              private alertService: AlertService) { 
           this.fb = fb;
           this.isFormValid = false;
       }
@@ -109,6 +111,8 @@ export class EmployeeCreateComponent implements OnInit {
         .subscribe(employee => {
           //this.successMessage = 'Employee Created Successfully'
           //setTimeout(() => this.successMessage = '', 3000);
+          this.alertService.sendAlert('Employee Created Successfully');
+
           const link = ['/employees', employee.id];
           this.router.navigate(link);
         },

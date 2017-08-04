@@ -9,6 +9,8 @@ import { NotFoundComponent } from './erp/not-found/not-found.component';
 
 import { appRouting } from "./app.routing";
 import { EmployeesModule } from "app/erp/employees/employees.module";
+import { AlertComponent } from './erp/alert/alert.component';
+import { AlertService } from "app/shared/services/alert.service";
 
 
 @NgModule({
@@ -17,13 +19,16 @@ import { EmployeesModule } from "app/erp/employees/employees.module";
     HomeComponent,
     AboutComponent,
     NavbarComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    AlertComponent
   ],
   imports: [
     BrowserModule,
     appRouting
   ],
-  providers: [],
+  providers: [
+    AlertService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
